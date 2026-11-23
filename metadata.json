@@ -1,0 +1,6 @@
+{
+  "name": "IRQ تواصل",
+  "description": "تواصل، كل العراق بمكان واحد. منصة اجتماعية ومراسلة عراقية، عربية أولاً (RTL).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

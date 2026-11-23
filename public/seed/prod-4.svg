@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A16207" />
+      <stop offset="100%" stop-color="#713F12" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  <rect x="40" y="40" width="520" height="520" rx="32" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.25" />
+  <circle cx="300" cy="270" r="140" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.3" stroke-dasharray="12 8" />
+  <g transform="translate(300, 270) scale(4)">
+    <path d="M-5.5 -19 L5.5 -19 L1.6 -9.5 L1.6 -2 L-1.6 -2 L-1.6 -9.5 Z" fill="#FFFFFF" />
+    <path d="M-5.5 -19 L5.5 -19 L1.6 -9.5 L1.6 -2 L-1.6 -2 L-1.6 -9.5 Z" fill="#FFFFFF" transform="rotate(120)" />
+    <path d="M-5.5 -19 L5.5 -19 L1.6 -9.5 L1.6 -2 L-1.6 -2 L-1.6 -9.5 Z" fill="#FFFFFF" opacity="0.7" transform="rotate(240)" />
+  </g>
+  <text x="300" y="450" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">مسبحة كهرمان بلطيقي</text>
+  <text x="300" y="490" fill="#FFFFFF" opacity="0.8" font-family="Cairo, sans-serif" font-size="20" font-weight="600" text-anchor="middle">خراطة يدوية ملمس ناعم وعطر طبيعي</text>
+</svg>

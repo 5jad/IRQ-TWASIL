@@ -1,0 +1,17 @@
+CREATE INDEX IF NOT EXISTS "tw_follows_followee_idx" ON "tw_follows" USING btree ("followee_id");
+CREATE INDEX IF NOT EXISTS "tw_posts_sort_ts_idx" ON "tw_posts" USING btree ("sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_posts_author_sort_ts_idx" ON "tw_posts" USING btree ("author_id","sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_comments_post_sort_ts_idx" ON "tw_comments" USING btree ("post_id","sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_comments_author_idx" ON "tw_comments" USING btree ("author_id");
+CREATE INDEX IF NOT EXISTS "tw_stories_author_sort_ts_idx" ON "tw_stories" USING btree ("author_id","sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_reactions_target_idx" ON "tw_reactions" USING btree ("target_type","target_id");
+CREATE INDEX IF NOT EXISTS "tw_social_moments_author_sort_ts_idx" ON "tw_social_moments" USING btree ("author_id","sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_social_moments_sort_ts_idx" ON "tw_social_moments" USING btree ("sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_messages_conv_sort_ts_idx" ON "tw_messages" USING btree ("conversation_id","sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_products_seller_idx" ON "tw_products" USING btree ("seller_id");
+CREATE INDEX IF NOT EXISTS "tw_products_sort_order_idx" ON "tw_products" USING btree ("sort_order");
+CREATE INDEX IF NOT EXISTS "tw_orders_buyer_created_idx" ON "tw_orders" USING btree ("buyer_id","created_at");
+CREATE INDEX IF NOT EXISTS "tw_orders_seller_created_idx" ON "tw_orders" USING btree ("seller_id","created_at");
+CREATE INDEX IF NOT EXISTS "tw_wallet_tx_user_created_idx" ON "tw_wallet_transactions" USING btree ("user_id","created_at");
+CREATE INDEX IF NOT EXISTS "tw_community_messages_comm_sort_ts_idx" ON "tw_community_messages" USING btree ("community_id","sort_ts");
+CREATE INDEX IF NOT EXISTS "tw_notifications_recipient_sort_idx" ON "tw_notifications" USING btree ("recipient_id","sort_order");

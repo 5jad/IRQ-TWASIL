@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#065F46" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#bg)" />
+  <g opacity="0.15" stroke="#FFFFFF" stroke-width="2" fill="none">
+    <path d="M0 200 Q300 100 600 200 T1200 200" />
+    <path d="M0 240 Q300 140 600 240 T1200 240" />
+    <path d="M0 280 Q300 180 600 280 T1200 280" />
+    <circle cx="600" cy="200" r="160" />
+    <circle cx="600" cy="200" r="240" />
+  </g>
+  <text x="600" y="180" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="48" font-weight="bold" text-anchor="middle">نخيل البصرة</text>
+  <text x="600" y="240" fill="#FFFFFF" opacity="0.85" font-family="Cairo, sans-serif" font-size="22" font-weight="600" text-anchor="middle">بساتين الفاو وشط العرب · البصرة</text>
+</svg>

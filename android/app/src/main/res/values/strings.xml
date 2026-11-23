@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IRQ تواصل</string>
+    <string name="title_activity_main">IRQ تواصل</string>
+    <string name="package_name">iq.tawasul.app</string>
+    <string name="custom_url_scheme">iq.tawasul.app</string>
+</resources>
