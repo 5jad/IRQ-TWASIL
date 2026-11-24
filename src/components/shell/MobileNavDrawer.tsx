@@ -84,7 +84,7 @@ export function MobileNavDrawer() {
       contentClassName="!max-h-screen h-full !w-[min(320px,86vw)] max-w-[320px] bg-[var(--surface)] border-e border-[var(--border)] shadow-2xl flex flex-col overflow-hidden"
     >
       {/* Header */}
-      <div className="px-4 py-3.5 border-b border-[var(--border)] flex items-center justify-between shrink-0">
+      <div className="px-4 py-3.5 pt-[calc(14px+var(--sat))] border-b border-[var(--border)] flex items-center justify-between shrink-0">
         <button
           type="button"
           onClick={() => handleNavigate('home')}
@@ -187,7 +187,7 @@ export function MobileNavDrawer() {
       </nav>
 
       {/* Footer: New Post + User Summary */}
-      <div className="p-3 border-t border-[var(--border)] flex flex-col gap-2 shrink-0">
+      <div className="p-3 pb-[calc(12px+var(--sab))] border-t border-[var(--border)] flex flex-col gap-2 shrink-0">
         <PWAInstallButton compact />
 
         {serverOnline && !isAuthenticated && (

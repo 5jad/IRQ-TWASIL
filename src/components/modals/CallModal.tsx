@@ -124,7 +124,7 @@ export function CallModal({ isOpen, onClose, user, isVideoCall = false }: CallMo
       testId="tw-call-modal"
       className="p-0 bg-slate-950"
       overlayClassName="bg-slate-950"
-      contentClassName="h-full flex flex-col justify-between p-6 max-w-lg"
+      contentClassName="h-full flex flex-col justify-between p-6 pt-[calc(24px+var(--sat))] pb-[calc(24px+var(--sab))] max-w-lg"
     >
       <div className="flex flex-col justify-between h-full select-none">
         {/* Top Header */}
@@ -152,7 +152,7 @@ export function CallModal({ isOpen, onClose, user, isVideoCall = false }: CallMo
 
         {/* Draggable Self View Tile (for video calls) */}
         {isVideoEnabled && (
-          <div className="absolute top-16 end-6 w-28 h-40 rounded-2xl bg-slate-800 border-2 border-white/30 overflow-hidden shadow-2xl flex items-center justify-center z-20">
+          <div className="absolute top-[calc(64px+var(--sat))] end-6 w-28 h-40 rounded-2xl bg-slate-800 border-2 border-white/30 overflow-hidden shadow-2xl flex items-center justify-center z-20">
             {mediaStatus === 'ready' ? (
               <video
                 ref={selfVideoRef}

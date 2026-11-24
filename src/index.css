@@ -41,8 +41,15 @@
 
 :root {
   --font-scale: 1;
+  /* Safe-area tokens: prefer Capacitor SystemBars injected --safe-area-inset-* and fall back to browser env() */
+  --sat: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  --sab: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+  --sal: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
+  --sar: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
+
   /* Shell pixel geometry tokens (F12) */
-  --header-h: 56px;
+  --header-base-h: 56px;
+  --header-h: calc(var(--header-base-h) + var(--sat));
   --chrome-top: var(--header-h);
   --strip-top: var(--header-h);
   --bar-h: 64px;

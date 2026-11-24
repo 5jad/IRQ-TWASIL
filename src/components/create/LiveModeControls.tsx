@@ -193,7 +193,7 @@ export function LiveModeControls({
             type="button"
             onClick={onFlipCamera}
             aria-label="تبديل الكاميرا"
-            className="absolute bottom-[calc(25px+env(safe-area-inset-bottom,0px))] end-[12px] z-30 w-[44px] h-[44px] flex items-center justify-center text-[var(--cam-text)] active:scale-95"
+            className="absolute bottom-[calc(25px+var(--sab))] end-[12px] z-30 w-[44px] h-[44px] flex items-center justify-center text-[var(--cam-text)] active:scale-95"
           >
             <SwitchCamera className="w-[26px] h-[26px]" />
           </button>
@@ -217,7 +217,7 @@ export function LiveModeControls({
       {isLiveActive && (
         <div
           data-testid="tw-live-active-overlay"
-          className="absolute inset-0 z-40 pointer-events-none flex flex-col justify-between p-4 pt-[calc(48px+env(safe-area-inset-top,0px))] pb-[calc(32px+env(safe-area-inset-bottom,0px))]"
+          className="absolute inset-0 z-40 pointer-events-none flex flex-col justify-between p-4 pt-[max(48px,calc(16px+var(--sat)))] pb-[calc(32px+var(--sab))]"
         >
           {/* Top Live Header */}
           <div className="flex items-center justify-between pointer-events-auto">
@@ -280,7 +280,7 @@ export function LiveModeControls({
         title="خيارات البث المباشر"
         testId="tw-live-sheet"
         className="!p-0 !items-end !justify-center"
-        contentClassName="max-w-md w-full !max-h-[70vh] rounded-t-[24px] bg-[var(--cam-surface)] text-[var(--cam-text)] border-t border-white/10 shadow-2xl overflow-y-auto pb-[env(safe-area-inset-bottom,16px)]"
+        contentClassName="max-w-md w-full !max-h-[70vh] rounded-t-[24px] bg-[var(--cam-surface)] text-[var(--cam-text)] border-t border-white/10 shadow-2xl overflow-y-auto pb-[max(16px,var(--sab))]"
       >
         <div className="p-4 flex flex-col gap-3">
           <div className="w-[36px] h-[4px] rounded-full bg-[var(--cam-muted)]/40 mx-auto" />

@@ -1003,7 +1003,7 @@ export function CreateView() {
 
         {/* Top Bar (Camera modes: height 56 under safe-area, 44x44 buttons, 28px white icons) */}
         {isCameraMode && !frozenInstantClip && !(mode === 'live' && isLiveSessionBusy) && (
-          <header className="absolute top-[calc(41px+env(safe-area-inset-top,0px))] inset-x-0 h-[56px] z-30 pointer-events-none">
+          <header className="absolute top-[max(41px,calc(12px+var(--sat)))] inset-x-0 h-[56px] z-30 pointer-events-none">
             <button
               type="button"
               data-testid="tw-create-close"
@@ -1305,7 +1305,7 @@ export function CreateView() {
             data-testid={mode === 'instants' ? 'tw-instants-gallery-btn' : 'tw-create-gallery-btn'}
             onClick={() => fileInputRef.current?.click()}
             aria-label="اختيار من المعرض"
-            className="absolute bottom-[calc(23px+env(safe-area-inset-bottom,0px))] start-[8px] z-30 w-[48px] h-[48px] rounded-[10px] border-2 border-[var(--cam-text)] overflow-hidden bg-[var(--cam-surface)] flex items-center justify-center"
+            className="absolute bottom-[calc(23px+var(--sab))] start-[8px] z-30 w-[48px] h-[48px] rounded-[10px] border-2 border-[var(--cam-text)] overflow-hidden bg-[var(--cam-surface)] flex items-center justify-center"
           >
             {galleryThumb ? (
               <img src={galleryThumb} alt="المعرض" className="w-full h-full object-cover" />
@@ -1321,7 +1321,7 @@ export function CreateView() {
             role="tablist"
             aria-label="أوضاع الإنشاء"
             data-testid="tw-create-mode-strip"
-            className={`absolute bottom-[calc(27.5px+env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 z-30 h-[39px] max-w-[calc(100%-128px)] sm:max-w-[400px] sm:w-auto rounded-full px-[14px] sm:px-[18px] flex items-center gap-[16px] sm:gap-[22px] overflow-x-auto snap-x snap-mandatory scrollbar-none transition-colors duration-[180ms] motion-reduce:duration-0 ${
+            className={`absolute bottom-[calc(27.5px+var(--sab))] left-1/2 -translate-x-1/2 z-30 h-[39px] max-w-[calc(100%-128px)] sm:max-w-[400px] sm:w-auto rounded-full px-[14px] sm:px-[18px] flex items-center gap-[16px] sm:gap-[22px] overflow-x-auto snap-x snap-mandatory scrollbar-none transition-colors duration-[180ms] motion-reduce:duration-0 ${
               mode === 'reel'
                 ? 'bg-transparent'
                 : mode === 'post'
@@ -1362,7 +1362,7 @@ export function CreateView() {
             data-testid="tw-create-flip-btn"
             onClick={camera.flipCamera}
             aria-label="تبديل الكاميرا"
-            className="absolute bottom-[calc(25px+env(safe-area-inset-bottom,0px))] end-[12px] z-30 w-[44px] h-[44px] flex items-center justify-center text-[var(--cam-text)] active:scale-95"
+            className="absolute bottom-[calc(25px+var(--sab))] end-[12px] z-30 w-[44px] h-[44px] flex items-center justify-center text-[var(--cam-text)] active:scale-95"
           >
             <SwitchCamera className="w-[28px] h-[28px]" />
           </button>

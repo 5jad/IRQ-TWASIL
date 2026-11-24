@@ -41,20 +41,62 @@ export function registerAndroidBackButton(onBack: () => boolean): () => void {
   };
 }
 
+export interface SystemBarAppearance {
+  isDark: boolean;
+  backgroundColor: string;
+}
+
+export function resolveSystemBarAppearance(
+  theme: Theme,
+  prefersDark: boolean
+): SystemBarAppearance {
+  const isDark =
+    theme === 'dark' ||
+    theme === 'high-contrast' ||
+    (theme === 'system' && prefersDark);
+
+  const backgroundColor =
+    theme === 'high-contrast'
+      ? '#000000'
+      : isDark
+      ? '#0A0F1A'
+      : theme === 'calm'
+      ? '#F4F1EA'
+      : '#FAF9F7';
+
+  return { isDark, backgroundColor };
+}
+
+export function computeChromeTopOffsets(isBottomBarVisible: boolean): {
+  chromeTop: string;
+  stripTop: string;
+} {
+  return {
+    chromeTop: isBottomBarVisible ? 'var(--header-h)' : 'var(--sat)',
+    stripTop: isBottomBarVisible ? 'var(--header-h)' : 'calc(-80px + var(--sat))',
+  };
+}
+
 export function syncAndroidStatusBar(theme: Theme): void {
   if (!isCapacitorNative() || typeof window === 'undefined') return;
 
   const prefersDark =
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isDark = theme === 'dark' || theme === 'high-contrast' || (theme === 'system' && prefersDark);
+  const { isDark, backgroundColor } = resolveSystemBarAppearance(theme, prefersDark);
+
+  void import('@capacitor/core')
+    .then(({ SystemBars, SystemBarsStyle }) =>
+      SystemBars.setStyle({
+        style: isDark ? SystemBarsStyle.Dark : SystemBarsStyle.Light,
+      })
+    )
+    .catch(() => {});
 
   void import('@capacitor/status-bar')
     .then(async ({ StatusBar, Style }) => {
       await StatusBar.setStyle({ style: isDark ? Style.Dark : Style.Light });
-      await StatusBar.setBackgroundColor({
-        color: theme === 'high-contrast' ? '#000000' : isDark ? '#0B1220' : '#FAF9F7',
-      });
+      await StatusBar.setBackgroundColor({ color: backgroundColor });
     })
     .catch(() => {});
 }

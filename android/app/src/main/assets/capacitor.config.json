@@ -11,5 +11,15 @@
 		"backgroundColor": "#FAF9F7",
 		"captureInput": true,
 		"webContentsDebuggingEnabled": false
+	},
+	"plugins": {
+		"SystemBars": {
+			"insetsHandling": "css",
+			"initialViewportFitValueHint": "cover",
+			"style": "DEFAULT"
+		},
+		"StatusBar": {
+			"overlaysWebView": true
+		}
 	}
 }

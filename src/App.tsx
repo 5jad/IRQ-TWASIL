@@ -33,7 +33,11 @@ import { PostCommentsSheet } from './components/modals/PostCommentsSheet';
 import { WifiOff, RefreshCw, ShieldX } from 'lucide-react';
 import { AppRoute, Post } from './types';
 import { isCapacitorNative } from './lib/runtimeUrl';
-import { registerAndroidBackButton, syncAndroidStatusBar } from './lib/nativeAndroid';
+import {
+  computeChromeTopOffsets,
+  registerAndroidBackButton,
+  syncAndroidStatusBar,
+} from './lib/nativeAndroid';
 
 // Lazy-loaded routes (P2)
 const ExploreView = lazy(() =>
@@ -484,8 +488,9 @@ function AppShell() {
   // Sync top chrome & feed filter strip offsets on scroll (S1)
   useEffect(() => {
     const root = document.documentElement.style;
-    root.setProperty('--chrome-top', isBottomBarVisible ? 'var(--header-h)' : '0px');   // profile tabs stay pinned
-    root.setProperty('--strip-top', isBottomBarVisible ? 'var(--header-h)' : '-80px');  // feed filter strip slides away
+    const { chromeTop, stripTop } = computeChromeTopOffsets(isBottomBarVisible);
+    root.setProperty('--chrome-top', chromeTop); // profile tabs stay pinned below status bar
+    root.setProperty('--strip-top', stripTop);   // feed filter strip slides away cleanly
   }, [isBottomBarVisible]);
 
   // Handle back button for inner pages & history
@@ -532,6 +537,15 @@ function AppShell() {
             : `${isWideView ? 'max-w-5xl' : 'max-w-[680px]'} border-e border-[var(--border)] bg-[var(--bg)]`
         }`}
       >
+        {/* Fixed status bar shield so scrolled feed/tabs never collide with phone status bar icons */}
+        {!isCreateRoute && (
+          <div
+            aria-hidden="true"
+            data-testid="tw-status-bar-shield"
+            className="fixed top-0 inset-x-0 h-[var(--sat)] bg-[var(--bg)] z-30 pointer-events-none md:hidden"
+          />
+        )}
+
         {/* TopBar on mobile and inner pages */}
         {!isCreateRoute && (
           <TopBar
@@ -570,7 +584,7 @@ function AppShell() {
         {hasUpdate && (
           <div
             data-testid="tw-update-toast"
-            className="fixed bottom-[calc(var(--bar-h)+24px)] inset-x-4 max-w-sm mx-auto z-40 bg-[var(--surface)] text-[var(--text)] p-3 rounded-2xl shadow-xl border border-[var(--primary)] flex items-center justify-between gap-3 animate-in slide-in-from-bottom"
+            className="fixed bottom-[calc(var(--bar-h)+24px+var(--sab))] inset-x-4 max-w-sm mx-auto z-40 bg-[var(--surface)] text-[var(--text)] p-3 rounded-2xl shadow-xl border border-[var(--primary)] flex items-center justify-between gap-3 animate-in slide-in-from-bottom"
           >
             <span className="text-xs font-bold">يوجد إصدار جديد، تحديث</span>
             <button
@@ -623,7 +637,7 @@ function AppShell() {
           <div
             data-testid="tw-app-toast"
             role="status"
-            className={`fixed bottom-[calc(var(--bar-h)+72px)] inset-x-4 max-w-sm mx-auto z-50 px-4 py-3 rounded-2xl shadow-xl border flex items-center justify-between gap-3 bg-[var(--surface)] text-[var(--text)] ${
+            className={`fixed bottom-[calc(var(--bar-h)+72px+var(--sab))] inset-x-4 max-w-sm mx-auto z-50 px-4 py-3 rounded-2xl shadow-xl border flex items-center justify-between gap-3 bg-[var(--surface)] text-[var(--text)] ${
               appToast.tone === 'error'
                 ? 'border-[var(--danger)]'
                 : appToast.tone === 'success'
@@ -648,7 +662,7 @@ function AppShell() {
           <div
             data-testid="tw-story-toast"
             role="status"
-            className="fixed bottom-[calc(var(--bar-h)+24px)] inset-x-4 max-w-sm mx-auto z-40 bg-[var(--surface)] text-[var(--text)] px-4 py-3 rounded-2xl shadow-xl border border-[var(--primary)] flex items-center justify-between gap-3"
+            className="fixed bottom-[calc(var(--bar-h)+24px+var(--sab))] inset-x-4 max-w-sm mx-auto z-40 bg-[var(--surface)] text-[var(--text)] px-4 py-3 rounded-2xl shadow-xl border border-[var(--primary)] flex items-center justify-between gap-3"
           >
             <span className="text-xs font-bold">{storyToast.message}</span>
             <div className="flex items-center gap-2 shrink-0">

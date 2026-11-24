@@ -304,7 +304,7 @@ export function CreateEditor({
       data-testid="tw-create-editor"
       className="fixed inset-0 z-40 bg-[var(--cam-bg)] text-[var(--cam-text)] flex flex-col items-center justify-between select-none"
     >
-      <div className="relative w-full max-w-[430px] h-full flex flex-col justify-between p-[2px] pb-[env(safe-area-inset-bottom,0px)]">
+      <div className="relative w-full max-w-[430px] h-full flex flex-col justify-between p-[2px] pb-[var(--sab)]">
         {/* Media Preview Frame (rounded 20) */}
         <div
           ref={frameRef}
@@ -442,7 +442,7 @@ export function CreateEditor({
           ))}
 
           {/* Top Bar inside preview */}
-          <div className="absolute top-3 inset-x-3 z-30 flex items-center justify-between pt-[env(safe-area-inset-top,0px)]">
+          <div className="absolute top-3 inset-x-3 z-30 flex items-center justify-between pt-[var(--sat)]">
             <div className="flex items-center gap-1.5">
               <button
                 type="button"

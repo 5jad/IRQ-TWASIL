@@ -133,7 +133,7 @@ export function PostPickerPanel({
         data-testid="tw-post-edit-step"
         className="absolute inset-0 z-30 bg-[var(--cam-bg)] text-[var(--cam-text)] flex flex-col"
       >
-        <header className="h-[56px] mt-[calc(36px+env(safe-area-inset-top,0px))] px-2 flex items-center justify-between border-b border-white/10">
+        <header className="h-[56px] mt-[max(36px,calc(12px+var(--sat)))] px-2 flex items-center justify-between border-b border-white/10">
           <button
             type="button"
             onClick={() => setSubView('picker')}
@@ -254,7 +254,7 @@ export function PostPickerPanel({
       />
 
       {/* Top Bar: top=36, height=56 (bottom y=92) */}
-      <header className="absolute top-[calc(36px+env(safe-area-inset-top,0px))] inset-x-0 h-[56px] px-2 flex items-center justify-between z-30">
+      <header className="absolute top-[max(36px,calc(12px+var(--sat)))] inset-x-0 h-[56px] px-2 flex items-center justify-between z-30">
         <button
           type="button"
           data-testid="tw-create-close"

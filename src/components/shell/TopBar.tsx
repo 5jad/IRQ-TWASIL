@@ -89,7 +89,7 @@ export function TopBar({ title, onBack, rightAction }: TopBarProps) {
       <header
         data-testid="tw-topbar-root"
         style={{ transform: isBottomBarVisible ? 'translateY(0)' : 'translateY(-100%)' }}
-        className="sticky top-0 z-20 h-[var(--header-h)] bg-[var(--bg)] border-b border-[var(--border)] px-3 flex items-center justify-between md:hidden transition-transform duration-200 motion-reduce:transition-none"
+        className="sticky top-0 z-20 h-[var(--header-h)] pt-[var(--sat)] bg-[var(--bg)] border-b border-[var(--border)] px-3 flex items-center justify-between md:hidden transition-transform duration-200 motion-reduce:transition-none"
       >
         {/* Start side: Full menu drawer + Create + button */}
         <div className="flex items-center gap-1.5">
@@ -171,7 +171,7 @@ export function TopBar({ title, onBack, rightAction }: TopBarProps) {
     return (
       <header
         data-testid="tw-topbar-chat"
-        className="sticky top-0 z-20 h-[var(--header-h)] bg-[var(--bg)] border-b border-[var(--border)] px-2 flex items-center justify-between"
+        className="sticky top-0 z-20 h-[var(--header-h)] pt-[var(--sat)] bg-[var(--bg)] border-b border-[var(--border)] px-2 flex items-center justify-between"
       >
         <div className="flex items-center gap-2">
           {onBack && (
@@ -285,7 +285,7 @@ export function TopBar({ title, onBack, rightAction }: TopBarProps) {
       <header
         data-testid="tw-topbar-profile"
         style={{ transform: isBottomBarVisible ? 'translateY(0)' : 'translateY(-100%)' }}
-        className="sticky top-0 z-20 h-[var(--header-h)] bg-[var(--bg)] border-b border-[var(--border)] px-3 flex items-center justify-between md:hidden transition-transform duration-200 motion-reduce:transition-none"
+        className="sticky top-0 z-20 h-[var(--header-h)] pt-[var(--sat)] bg-[var(--bg)] border-b border-[var(--border)] px-3 flex items-center justify-between md:hidden transition-transform duration-200 motion-reduce:transition-none"
       >
         <div className="flex items-center gap-1.5">
           <button
@@ -330,7 +330,7 @@ export function TopBar({ title, onBack, rightAction }: TopBarProps) {
   return (
     <header
       data-testid="tw-topbar-inner"
-      className="sticky top-0 z-20 h-[var(--header-h)] bg-[var(--bg)] border-b border-[var(--border)] px-3 flex items-center justify-between"
+      className="sticky top-0 z-20 h-[var(--header-h)] pt-[var(--sat)] bg-[var(--bg)] border-b border-[var(--border)] px-3 flex items-center justify-between"
     >
       <div className="flex items-center gap-2">
         {onBack ? (

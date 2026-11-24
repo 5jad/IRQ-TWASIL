@@ -14,6 +14,16 @@ const config: CapacitorConfig = {
     captureInput: true,
     webContentsDebuggingEnabled: false,
   },
+  plugins: {
+    SystemBars: {
+      insetsHandling: 'css',
+      initialViewportFitValueHint: 'cover',
+      style: 'DEFAULT',
+    },
+    StatusBar: {
+      overlaysWebView: true,
+    },
+  },
 };
 
 export default config;

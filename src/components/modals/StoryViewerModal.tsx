@@ -634,7 +634,7 @@ export function StoryViewerModal({ isOpen, onClose, user }: StoryViewerModalProp
         {currentStory.overlays?.map(renderOverlay)}
 
         {/* Top Header & Progress Bars */}
-        <div className="relative z-10 p-3 pt-4 flex flex-col gap-2 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
+        <div className="relative z-10 p-3 pt-[calc(16px+var(--sat))] flex flex-col gap-2 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
           {/* Progress Bars (1 segment per story in active user) */}
           <div data-testid="tw-story-progress-bars" className="flex items-center gap-1.5 w-full">
             {activeStories.map((st, i) => (
@@ -730,7 +730,7 @@ export function StoryViewerModal({ isOpen, onClose, user }: StoryViewerModalProp
         </div>
 
         {/* Bottom Caption, Music Chip & Reply Input */}
-        <div className="relative z-10 p-3 pb-6 flex flex-col gap-2.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white">
+        <div className="relative z-10 p-3 pb-[calc(24px+var(--sab))] flex flex-col gap-2.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white">
           {soundChipTitle && (
             <div
               data-testid="tw-story-sound-chip"

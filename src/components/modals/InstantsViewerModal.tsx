@@ -123,7 +123,7 @@ export function InstantsViewerModal({
       </svg>
 
       <div
-        className="relative w-full max-w-md h-full sm:h-[840px] sm:rounded-3xl overflow-hidden flex flex-col justify-between bg-[var(--cam-bg)] text-[var(--cam-text)] p-4 pt-[calc(16px+env(safe-area-inset-top,0px))] pb-[calc(20px+env(safe-area-inset-bottom,0px))] select-none"
+        className="relative w-full max-w-md h-full sm:h-[840px] sm:rounded-3xl overflow-hidden flex flex-col justify-between bg-[var(--cam-bg)] text-[var(--cam-text)] p-4 pt-[calc(16px+var(--sat))] pb-[calc(20px+var(--sab))] select-none"
         onPointerDown={(e) => {
           swipeXRef.current = e.clientX;
         }}

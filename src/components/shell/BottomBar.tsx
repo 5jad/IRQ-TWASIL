@@ -200,7 +200,7 @@ export function BottomBar() {
       aria-hidden={!isBottomBarVisible}
       className="fixed inset-x-0 pointer-events-none z-30 md:hidden transition-transform duration-200 ease-out motion-reduce:transition-none"
       style={{
-        bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
+        bottom: 'calc(16px + var(--sab))',
         height: '64px',
         transform: isBottomBarVisible ? 'translateY(0)' : 'translateY(calc(100% + 28px))',
       }}
